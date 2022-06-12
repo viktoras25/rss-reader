@@ -1,8 +1,6 @@
 <?php
 
-namespace Viktoras\RssReader\Entities\Channel;
-
-use Viktoras\RssReader\Entities\AbstractEntity;
+namespace Viktoras\RssReader\Entities;
 
 class Category extends AbstractEntity
 {
@@ -14,5 +12,10 @@ class Category extends AbstractEntity
     public function getValue(): string
     {
         return strval($this->xml);
+    }
+
+    public function __toString()
+    {
+        return $this->getValue();
     }
 }

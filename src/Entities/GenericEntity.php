@@ -6,6 +6,6 @@ class GenericEntity extends AbstractEntity
 {
     public function __toString()
     {
-        return (string)$this->xml;
+        return (string) $this->xml;
     }
 }

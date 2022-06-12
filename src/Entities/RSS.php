@@ -24,8 +24,6 @@ class RSS extends AbstractEntity
     }
 
     /**
-     * @return Channel
-     *
      * @throws RequiredElementMissing|InvalidClass
      */
     public function getChannel(): Channel

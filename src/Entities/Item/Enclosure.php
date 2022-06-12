@@ -1,9 +1,8 @@
 <?php
 
-namespace Viktoras\RssReader\Entities\Channel;
+namespace Viktoras\RssReader\Entities\Channel\Item;
 
 use Viktoras\RssReader\Entities\AbstractEntity;
-use Viktoras\RssReader\Exceptions\RequiredElementMissing;
 
 class Enclosure extends AbstractEntity
 {

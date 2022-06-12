@@ -36,11 +36,6 @@ class Reader
         throw new Exceptions\UnsupportedInput('Provided input can not be processed as RSS');
     }
 
-    public function getXml(): SimpleXMLElement
-    {
-        return $this->xml;
-    }
-
     /**
      * @throws Exceptions\RequiredElementMissing
      */

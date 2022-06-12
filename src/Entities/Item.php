@@ -3,8 +3,7 @@
 namespace Viktoras\RssReader\Entities;
 
 use DateTimeInterface;
-use Viktoras\RssReader\Entities\Channel\Category;
-use Viktoras\RssReader\Entities\Channel\Enclosure;
+use Viktoras\RssReader\Entities\Channel\Item\Enclosure;
 
 /**
  * A channel may contain any number of <item>s. An item may represent a "story"
@@ -84,8 +83,6 @@ class Item extends AbstractEntity
 
     /**
      * Indicates when the item was published. Optional.
-     *
-     * @return DateTimeInterface|null
      */
     public function getPubDate(): ?DateTimeInterface
     {

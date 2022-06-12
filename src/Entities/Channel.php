@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Viktoras\RssReader\Entities;
 
 use DateTimeInterface;
-use Viktoras\RssReader\Entities\Channel\Category;
 use Viktoras\RssReader\Entities\Channel\Channel\Cloud;
 use Viktoras\RssReader\Entities\Channel\Image;
 use Viktoras\RssReader\Exceptions\InvalidDateFormat;
@@ -49,6 +48,7 @@ class Channel extends AbstractEntity
 
     /**
      * The language the channel is written in. Optional.
+     *
      * @see https://www.rssboard.org/rss-language-codes
      */
     public function getLanguage(): string
@@ -84,8 +84,6 @@ class Channel extends AbstractEntity
      * The publication date for the content in the channel. Optional.
      *
      * @throws InvalidDateFormat
-     *
-     * @return DateTimeInterface|null
      */
     public function getPubDate(): ?DateTimeInterface
     {
@@ -96,8 +94,6 @@ class Channel extends AbstractEntity
      * The last time the content of the channel changed. Optional.
      *
      * @throws InvalidDateFormat
-     *
-     * @return DateTimeInterface|null
      */
     public function getLastBuildDate(): ?DateTimeInterface
     {
@@ -188,7 +184,7 @@ class Channel extends AbstractEntity
             return [];
         }
 
-        return $skipHours->mapNodes('hour', fn($value) => strval($value));
+        return $skipHours->mapNodes('hour', fn ($value) => strval($value));
     }
 
     /**
@@ -201,7 +197,7 @@ class Channel extends AbstractEntity
             return [];
         }
 
-        return $skipDays->mapNodes('day', fn($value) => strval($value));
+        return $skipDays->mapNodes('day', fn ($value) => strval($value));
     }
 
     /**

@@ -8,7 +8,6 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use Exception as BaseException;
 use SimpleXMLElement;
-use Viktoras\RssReader\Exceptions\InvalidClass;
 use Viktoras\RssReader\Exceptions\InvalidDateFormat;
 use Viktoras\RssReader\Exceptions\RequiredAttributeMissing;
 use Viktoras\RssReader\Exceptions\RequiredElementMissing;
@@ -79,7 +78,7 @@ abstract class AbstractEntity
 
     protected function getObjectElements(string $nodeName, string $className): array
     {
-        return $this->mapNodes($nodeName, fn($node) => new $className($node));
+        return $this->mapNodes($nodeName, fn ($node) => new $className($node));
     }
 
     protected function mapNodes(string $nodeName, callable $callback): array

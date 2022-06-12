@@ -13,10 +13,10 @@ dataset('feeds', [
     'write-the-web-0.91'  => file_get_contents(__DIR__ . '/_files/feeds/write-the-web-0.91.xml'),
 ]);
 
-it('fails on unsupported input type', fn() => new Reader(1))
+it('fails on unsupported input type', fn () => new Reader(1))
     ->throws(UnsupportedInput::class, 'Provided input can not be processed as RSS');
 
-it('fails on invalid XML', fn() => new Reader('<invalid'))
+it('fails on invalid XML', fn () => new Reader('<invalid'))
     ->throws(InvalidXml::class, 'String could not be parsed as XML');
 
 it('can initialize reader with a string', function ($string) {

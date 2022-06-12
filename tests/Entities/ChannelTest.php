@@ -2,10 +2,6 @@
 
 namespace Viktoras\RssReader\Tests\Entities;
 
-use SimpleXMLElement;
-use Viktoras\RssReader\Entities\RSS;
-use Viktoras\RssReader\Exceptions\RequiredAttributeMissing;
-use Viktoras\RssReader\Exceptions\RequiredElementMissing;
 use Viktoras\RssReader\Tests\ReaderTrait;
 
 uses(ReaderTrait::class);
