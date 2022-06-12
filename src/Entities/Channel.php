@@ -205,6 +205,6 @@ class Channel extends AbstractEntity
      */
     public function getItems(): array
     {
-        return [];
+        return $this->getObjectElements('item', Item::class);
     }
 }
