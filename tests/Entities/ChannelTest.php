@@ -12,7 +12,7 @@ it('reads channel properties', function (string $filename) {
     $this->assertSame('Liftoff News', $channel->getTitle());
     $this->assertSame('http://liftoff.msfc.nasa.gov/', $channel->getLink());
     $this->assertSame('Liftoff to Space Exploration.', $channel->getDescription());
-    $this->assertSame([], $channel->getItems());
+    $this->assertNotEmpty($channel->getItems());
     $this->assertSame('en-us', $channel->getLanguage());
     $this->assertSame('', $channel->getCopyright());
     $this->assertSame('editor@example.com', $channel->getManagingEditor());
