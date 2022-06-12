@@ -1,0 +1,38 @@
+{
+    "name": "viktoras/rss-reader",
+    "description": "A library to parse RSS feed",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Viktoras\\RssReader\\": "src",
+            "Viktoras\\RssReader\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Viktoras Bezaras",
+            "email": "viktoras.bezaras@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4||^8"
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.21",
+        "phpunit/phpunit": "^7||^8||^9||^10",
+        "friendsofphp/php-cs-fixer": "^3",
+        "roave/security-advisories": "dev-latest",
+        "vimeo/psalm": "^4.22"
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest tests",
+        "psalm": "./vendor/bin/psalm",
+        "fmt": "./vendor/bin/php-cs-fixer fix --using-cache no --config .php-cs-fixer.php"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
