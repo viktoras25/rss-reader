@@ -3,7 +3,7 @@
 namespace Viktoras\RssReader\Entities;
 
 use DateTimeInterface;
-use Viktoras\RssReader\Entities\Channel\Item\Enclosure;
+use Viktoras\RssReader\Entities\Item\Enclosure;
 
 /**
  * A channel may contain any number of <item>s. An item may represent a "story"

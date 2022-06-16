@@ -3,6 +3,7 @@
 namespace Viktoras\RssReader\Tests;
 
 use SimpleXMLElement;
+use Viktoras\RssReader\Exceptions\InvalidRss;
 use Viktoras\RssReader\Exceptions\InvalidXml;
 use Viktoras\RssReader\Exceptions\UnsupportedInput;
 use Viktoras\RssReader\Reader;
@@ -29,4 +30,19 @@ it('can initialize reader with a SimpleXMLElement', function ($string) {
     $reader = new Reader(new SimpleXMLElement($string));
 
     $this->assertIsObject($reader->getRSS());
+})->with('feeds');
+
+it('fails on invalid RSS', fn () => (new Reader('<notrss/>'))->getRSS())
+    ->throws(InvalidRss::class, 'Missing required <rss> element');
+
+it('can fetch channel from rss', function ($string) {
+    $reader = new Reader($string);
+
+    $this->assertEquals($reader->getRSS()->getChannel(), $reader->getChannel());
+})->with('feeds');
+
+it('can fetch items from rss', function ($string) {
+    $reader = new Reader($string);
+
+    $this->assertEquals($reader->getRSS()->getChannel()->getItems(), $reader->getItems());
 })->with('feeds');

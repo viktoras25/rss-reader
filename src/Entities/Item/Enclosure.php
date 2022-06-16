@@ -1,6 +1,6 @@
 <?php
 
-namespace Viktoras\RssReader\Entities\Channel\Item;
+namespace Viktoras\RssReader\Entities\Item;
 
 use Viktoras\RssReader\Entities\AbstractEntity;
 

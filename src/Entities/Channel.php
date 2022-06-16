@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Viktoras\RssReader\Entities;
 
 use DateTimeInterface;
-use Viktoras\RssReader\Entities\Channel\Channel\Cloud;
+use Viktoras\RssReader\Entities\Channel\Cloud;
 use Viktoras\RssReader\Entities\Channel\Image;
 use Viktoras\RssReader\Exceptions\InvalidDateFormat;
 use Viktoras\RssReader\Exceptions\RequiredElementMissing;
