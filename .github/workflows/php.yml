@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - operating-system: 'ubuntu-20.04'
+            php-version: '7.4'
+
+          - operating-system: 'ubuntu-20.04'
+            php-version: '8.0'
+
+          - operating-system: 'ubuntu-20.04'
+            php-version: '8.1'
+
+    name: PHP ${{ matrix.php-version }}
+
+    runs-on: ${{ matrix.operating-system }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Choose PHP Version
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+      env:
+        fail-fast: false # disabled as old PHP version cannot run flex
+        update: ${{ matrix.php-version == '8.0' }} # force update to 8.0.1+, ref https://github.com/shivammathur/setup-php/issues/394#issuecomment-760461251
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Run test suite
+      run: composer test
+
+    - name: Run psalm
+      run: composer psalm
+
+    - name: Run CS Fixer
+      run: composer fmt
